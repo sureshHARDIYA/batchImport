@@ -7,6 +7,7 @@ import createStore from "../store/createStore";
 import TableList from "../components/TableList";
 import UploadForm from "../components/UploadForm";
 import PayloadBuilder from "../components/PayloadBuilder";
+import RequestBuilder from "../components/RequestQueue";
 
 const { Provider, useStore } = createContext<any>();
 
@@ -114,8 +115,15 @@ const UploadPage = () => {
               buildPayload={buildPayload}
             />
           )}
-          {current === 2 && <PayloadBuilder useStore={useStore} />}
-          {current === 3 && "Send Request to the server"}
+          {current === 2 && (
+            <PayloadBuilder
+              useStore={useStore}
+              setCurrent={setCurrent}
+              setStepsFulfilled={setStepsFulfilled}
+              stepsFulfilled={stepsFulfilled}
+            />
+          )}
+          {current === 3 && <RequestBuilder useStore={useStore} />}
         </div>
         <div className="steps-action">
           {current < 4 - 1 && (

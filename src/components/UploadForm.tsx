@@ -1,4 +1,4 @@
-import { Upload, message, Button, Steps } from "antd";
+import { Upload, message, Button } from "antd";
 import { InboxOutlined } from "@ant-design/icons";
 
 const { Dragger } = Upload;
