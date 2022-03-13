@@ -134,7 +134,10 @@ const UploadPage = () => {
           {current === 4 - 1 && (
             <Button
               type="primary"
-              onClick={() => message.success("Processing complete!")}
+              onClick={() => {
+                message.success("Processing complete!");
+                window.location.reload();
+              }}
             >
               Done
             </Button>

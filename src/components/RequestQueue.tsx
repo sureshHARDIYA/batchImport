@@ -4,14 +4,7 @@ import { Statistic, Row, Col, Button, Collapse } from "antd";
 import CheckCircleOutlined from "@ant-design/icons/lib/icons/CheckCircleOutlined";
 
 const RequestBuilder = ({ useStore }: any) => {
-  const {
-    dataHouse,
-    columnNames,
-    transformKeys,
-    updateTransformKeys,
-    updateRequests,
-    requests,
-  } = useStore();
+  const { dataHouse, transformKeys, requests } = useStore();
   const [sucessRequests, setSuccessRequests] = useState<any>([]);
 
   const targetKeys = requests[0].targetKeys;

@@ -1,6 +1,8 @@
 import { Table, Button } from "antd";
 import { useEffect, useMemo } from "react";
 
+import Transformer from "./Transformer";
+
 const rowSelection = {
   onChange: (selectedRowKeys: any, selectedRows: any) => {
     console.log(
@@ -36,15 +38,16 @@ const TableList = ({ data, useStore, buildPayload }: any) => {
   }, [data]);
 
   const { dataHouse, updateDataHouse, updateColumnNames } = useStore();
+  const hasData = data && data.length;
 
   useEffect(() => {
     updateDataHouse(data);
     updateColumnNames(getColumns.map((col: any) => col.title));
-  }, [data && data.length]);
+  }, [hasData, data, getColumns, updateDataHouse, updateColumnNames]);
 
   return (
     <div>
-      <h1>TableList</h1>
+      <Transformer />
       <Table
         dataSource={dataHouse}
         columns={getColumns}
