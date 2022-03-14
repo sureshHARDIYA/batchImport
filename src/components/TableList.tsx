@@ -37,7 +37,8 @@ const TableList = ({ data, useStore, buildPayload }: any) => {
     });
   }, [data]);
 
-  const { dataHouse, updateDataHouse, updateColumnNames } = useStore();
+  const { dataHouse, updateDataHouse, updateColumnNames, columnNames } =
+    useStore();
   const hasData = data && data.length;
 
   useEffect(() => {
@@ -46,8 +47,8 @@ const TableList = ({ data, useStore, buildPayload }: any) => {
   }, [hasData, data, getColumns, updateDataHouse, updateColumnNames]);
 
   return (
-    <div>
-      <Transformer />
+    <>
+      <Transformer columnNames={columnNames} />
       <Table
         dataSource={dataHouse}
         columns={getColumns}
@@ -57,7 +58,7 @@ const TableList = ({ data, useStore, buildPayload }: any) => {
         }}
       />
       <Button onClick={buildPayload}>Start Building Payload</Button>
-    </div>
+    </>
   );
 };
 

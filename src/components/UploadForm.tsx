@@ -17,12 +17,10 @@ const UploadForm = ({
   fileList,
   handleUpload,
   uploading,
-  next,
 }: any) => {
   const props = {
     name: "file",
     onRemove: (file: any) => {
-      console.log(file);
       setFileList([]);
     },
 
